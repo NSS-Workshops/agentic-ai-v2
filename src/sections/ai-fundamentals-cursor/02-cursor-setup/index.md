@@ -55,17 +55,14 @@ When you first open Cursor:
 1. From the app menu at the top, choose **Cursor** -> **Settings** -> **Cursor Settings**
 2. Click on **Models**
 3. Search "gemini" and enable **gemini-2.5-flash**
-4. Search "super" and enable **code-supernova-1-million**
-5. Search "gpt" and enable **gpt-4.1**
-
-You will start with using the **gpt-4.1** LLM. The other two require you to generate an API on their respective platforms, which you will do in a future session. As always, the curious are encouraged to use Google to figure this out on their own if they want to enable them now.
 
 ### Step 5: Verify AI Access
 
 1. Open any code file (or create a new one)
-2. Press `Cmd+K` (Mac) or `Ctrl+K` (Windows/Linux)
+2. Press `Cmd+L` (Mac) or `Ctrl+L` (Windows/Linux)
 3. You should see the AI chat interface appear
-4. Type "What is this project about?" and press Enter - you should get a response
+4. Make sure the **gemini-2.5-flash** model is chosen in the dropdown at the bottom of the chat box
+5. Type "What is this project about?" and press Enter - you should get a response
 
 If this works, you're ready to go!
 
@@ -100,14 +97,6 @@ The **Chat** feature transforms your coding experience by providing an intellige
 As you type, Cursor's intelligent tab completion system anticipates your coding intentions and offers contextually relevant suggestions that go far beyond simple autocomplete. The system provides smart suggestions that understand not just the immediate code you're writing, but the broader context of your project, including variable names, function signatures, and established patterns throughout your codebase.
 
 When working with complex programming patterns, Cursor can suggest entire multi-line code blocks that follow best practices and maintain consistency with your existing code style. Simply press Tab to accept these AI-powered suggestions and watch your coding speed increase dramatically while maintaining high code quality.
-
-### 4. Code Selection Features
-
-Cursor's code selection features provide targeted AI assistance for specific portions of your codebase, making it easy to get help with exactly the code you're working on.
-
-When you select any block of code, you can right-click and choose **"Ask Cursor"** to receive detailed explanations of what the code does or get suggestions for improvements, use convenient keyboard shortcuts to trigger quick AI actions without interrupting your workflow, automatically generate comprehensive test cases for selected functions to improve your code's reliability, and apply intelligent refactoring suggestions that enhance code structure while preserving functionality.
-
-This selection-based approach ensures that AI assistance remains focused and relevant to your immediate needs.
 
 ## Cost Considerations and Limits
 

@@ -96,7 +96,10 @@ I have this React form component:
 
 [Include your current form code]
 
-I need to add validation that requires email format for the email field, ensures the password is at least 8 characters long, shows errors inline below each field, and prevents form submission if validation fails. How should I modify this component to implement these validation requirements while maintaining the existing functionality?
+I need to add validation that requires email format for the email field, ensures the password
+is at least 8 characters long, shows errors inline below each field, and prevents form submission
+if validation fails. How should I modify this component to implement these validation requirements
+while maintaining the existing functionality?
 ```
 
 ### 2. Specify Your Tech Stack
@@ -108,7 +111,10 @@ Create a database query for user data
 
 **Try:**
 ```
-I'm using Node.js with PostgreSQL and the pg library. I need a query function that fetches user profile data by user ID while joining with the user_preferences table to get complete user information. The function should return null if the user doesn't exist and must use parameterized queries for security to prevent SQL injection attacks.
+I'm using Node.js with PostgreSQL and the pg library. I need a query function that fetches user
+profile data by user ID while joining with the user_preferences table to get complete user
+information. The function should return null if the user doesn't exist and must use parameterized
+queries for security to prevent SQL injection attacks.
 
 Here's my current database connection setup:
 [Include connection code]
@@ -171,11 +177,17 @@ Let's practice with a real example in Cursor. You'll see the difference context 
 
 1. Clear the file and try this high-context prompt:
    ```
-   Create a ShoppingCart class for an e-commerce React app that stores items with id, name, price, quantity, and image properties. The class should have methods for addItem, removeItem, updateQuantity, getTotal, and clearCart functionality. It needs to persist data to localStorage automatically and emit events when the cart changes to support React state updates.
+   Create a ShoppingCart class for an e-commerce React app that stores items with id, name, price,
+   quantity, and image properties. The class should have methods for addItem, removeItem, updateQuantity,
+   getTotal, and clearCart functionality. It needs to persist data to localStorage automatically and
+   emit events when the cart changes to support React state updates.
 
-   The implementation should handle edge cases like adding duplicate items by updating the quantity instead of creating duplicate entries. Include validation to ensure that price is always a positive number and format all prices to 2 decimal places for consistent display.
+   The implementation should handle edge cases like adding duplicate items by updating the quantity
+   instead of creating duplicate entries. Include validation to ensure that price is always a positive
+   number and format all prices to 2 decimal places for consistent display.
 
-   The app uses ES6 modules and follows this naming convention: Classes use PascalCase, methods use camelCase, and constants use UPPER_SNAKE_CASE.
+   The app uses ES6 modules and follows this naming convention: Classes use PascalCase, methods use
+   camelCase, and constants use UPPER_SNAKE_CASE.
    ```
 
 2. Compare the results - notice the difference in quality and completeness
@@ -184,7 +196,8 @@ Let's practice with a real example in Cursor. You'll see the difference context 
 
 1. Use the chat feature (`Cmd+L` / `Ctrl+L`) to refine the code:
    ```
-   Add JSDoc comments to all methods and include TypeScript-style type hints in the comments. Also add input validation for the addItem method.
+   Add JSDoc comments to all methods and include TypeScript-style type hints in the comments. Also add
+   input validation for the addItem method.
    ```
 
 2. Continue refining based on your needs
@@ -270,7 +283,8 @@ Start with basic context and add details as needed:
 I need a user authentication system for my React app.
 
 // Follow-up with more context
-We're using Firebase Auth, and I need it to integrate with our existing user profile system that stores additional data in Firestore.
+We're using Firebase Auth, and I need it to integrate with our existing user profile system that
+stores additional data in Firestore.
 
 // Add specific requirements
 The auth flow should redirect to /dashboard on success and handle these specific error cases: [list cases]
