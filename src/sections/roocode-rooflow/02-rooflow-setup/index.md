@@ -9,22 +9,30 @@ Before installing RooFlow, ensure you have:
 
 1. Git installed and accessible in your system's PATH
 2. Python 3 installed and accessible as `python3` (Mac) or `python` (Windows)
-3. The PyYAML library installed. Install it using:
+
+Once you have Python and Git installed:
+
+1. For Mac/linux users, install the PyYAML library.
+
    ```sh
    pip install pyyaml
    ```
+
    If that didn't work, try this command:
+
    ```sh
    pip3 install pyyaml
+   ```
+2. For Windows users, open the **Powershell** application and install the PyYAML library.
+
+   ```sh
+   py -m pip install pyyaml
    ```
 
 ### Project Directory
 
-RooFlow is installed per project—it's not a global install, so make sure you are in the Coins R Us directory.
+🧨 🧨 RooFlow is installed per project—it's not a global install, so make sure you are in the Coins R Us directory for the next steps.
 
-```sh
-cd ~/agentic-ai-workshop/coins-r-us
-```
 
 ### Installation Steps for macOS or Linux
 

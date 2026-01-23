@@ -35,13 +35,17 @@ code ~/agentic-ai-workshop/coins-r-us
 
 ### Step 1: Install RooCode
 
-RooCode is distributed as a VS Code extension, making installation straightforward through VS Code's built-in extension marketplace. Open VS Code and navigate to the Extensions panel using Ctrl+Shift+X (or Cmd+Shift+X on Mac), then search for "Roo Code" and click Install on the official RooCode extension. For developers who prefer command-line installation, you can also install RooCode directly using the command:
+RooCode is distributed as a VS Code extension, making installation straightforward through VS Code's built-in extension marketplace.
 
-```sh
-code --install-extension roocode.roocode
-```
+1. Open VS Code in the Coins R Us directory
+2. Navigate to the Extensions panel using Ctrl+Shift+X (or Cmd+Shift+X on Mac)
+3. Search for "Roo Code" and click Install on the official RooCode extension.
 
-### Step 2: Initial Configuration
+### Step 2: Open RooCode Panel
+
+In the extensions strip on the left of VS Code, you'll see a new Kangaroo icon. Click that icon.
+
+### Step 3: Initial Configuration
 
 After installation, you'll need to configure RooCode with your API credentials to connect it to an AI provider. RooCode supports multiple AI providers, each with different strengths and pricing models.
 
@@ -65,16 +69,14 @@ You are going to be using Google Gemini's `gemini-2.5-flash` model which is free
 
 #### Setting Up Gemini in Roo Code
 
-1. In VS Code, click the kangaroo icon in your extension strip
-2. Open Roo Code settings
-3. Click the **+** sign next to the **Configuration Profile** dropdown.
-4. Name the profile "Gemini" and click **Create Profile**
-5. In the **API Provider** field, choose "Google Gemini"
-6. Go back to the browser and copy your API key and paste it into the **Gemini API Key** field in Roo Code
-7. Choose **gemini-2.5-flash** from the **Model** dropdown
-8. Expand the **Advanced Settings** further down in the panel
-9. Update the **Rate limit** slider to be 10 seconds.
-10. Click **Save** at the top of the panel, then **Done**
+1. Click the _"or use without an account"_ link
+2. Choose the option to use a 3rd party provider
+6. In the **API Provider** field, choose "Google Gemini"
+7. Go back to the browser and copy your API key and paste it into the **Gemini API Key** field in Roo Code
+8. Choose **gemini-2.5-flash** from the **Model** dropdown
+9.  Expand the **Advanced Settings** further down in the panel
+10. Update the **Rate limit** slider to be 10 seconds.
+11. Click **Save** at the top of the panel, then **Done**
 
 ## Verifying Your Setup
 
