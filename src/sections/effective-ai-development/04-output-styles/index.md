@@ -287,19 +287,16 @@ Claude: **Changes made:**
 
 ## The Learn While You Build Exercise
 
-This exercise helps you discover your preferred output style.
+This exercise helps you discover your preferred output style using the **Coins R Us** project.
 
 ### Setup
 
-Choose a moderately complex task:
-- Add a feature to an existing component
-- Implement error handling for an API
-- Create a new utility function
+Open the Coins R Us project. Your task: Add error handling and loading states to the coin listing page.
 
 ### Part 1: Try Minimal Style
 
 ```
-You: Add error handling to the API fetch function. Code only.
+You: Add error handling and a loading state to the coins page. Code only.
 
 [Implement the change]
 ```
@@ -307,22 +304,23 @@ You: Add error handling to the API fetch function. Code only.
 After implementation:
 - Did you understand what changed?
 - Could you debug issues if they arose?
-- Did you miss any context?
+- Did you miss any context about how Coins R Us handles errors?
 
 ### Part 2: Try Verbose Style
 
-Reset your changes, then:
+Reset your changes (`git checkout .`), then:
 
 ```
-You: Add error handling to the API fetch function. Explain your
-     approach in detail, including why each decision was made.
+You: Add error handling and a loading state to the coins page.
+     Explain your approach in detail, including why each
+     decision was made and how it fits the existing patterns.
 
 [Review the explanation]
 ```
 
 After implementation:
 - Was the explanation helpful or distracting?
-- Did you learn something new?
+- Did you learn something about Styled Components or Next.js patterns?
 - Was it too slow for your needs?
 
 ### Part 3: Find Your Balance
@@ -331,16 +329,16 @@ Try different combinations:
 
 ```
 # Pattern A: Code first, explain on request
-"Add error handling. [Code only]"
-"That looks good. Now explain the retry logic."
+"Add error handling to the coins page. Code only."
+"That looks good. Now explain how the error state works."
 
 # Pattern B: Brief context, detailed code
-"Add error handling. Brief explanation of approach, then
-full implementation."
+"Add error handling to the coins page. Brief explanation
+of approach, then full implementation."
 
 # Pattern C: Teach first, implement second
-"Explain error handling patterns for API calls, then
-implement the best one for our case."
+"Explain error handling patterns in Next.js App Router,
+then implement the best one for Coins R Us."
 ```
 
 ### Part 4: Document Your Preference

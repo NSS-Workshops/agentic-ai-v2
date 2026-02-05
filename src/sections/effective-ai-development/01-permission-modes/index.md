@@ -16,8 +16,8 @@ Claude Code provides three distinct permission modes:
 
 | Mode | Description | Best For |
 |------|-------------|----------|
-| **Normal** | Asks permission for each action | Learning, unfamiliar code, risky tasks |
-| **Auto-Accept** | Approves read/write operations automatically | Familiar codebases, routine tasks |
+| **Ask Before Edits** | Asks permission for each action | Learning, unfamiliar code, risky tasks |
+| **Edit Automatically** | Approves read/write operations automatically | Familiar codebases, routine tasks |
 | **Plan** | Analysis only, no modifications | Exploration, understanding, planning |
 
 ### Visual Comparison
@@ -25,19 +25,19 @@ Claude Code provides three distinct permission modes:
 ```
 Task: "Add error handling to the login function"
 
-NORMAL MODE:
+ASK BEFORE EDITS:
 You ──prompt──> Claude ──reads file──> [Approve?] ──edits file──> [Approve?] ──runs lint──> [Approve?]
 
-AUTO-ACCEPT MODE:
+EDIT AUTOMATICALLY:
 You ──prompt──> Claude ──reads file──> ──edits file──> ──runs lint──> Done
 
 PLAN MODE:
 You ──prompt──> Claude ──reads file──> ──analyzes──> "Here's how I would add error handling..."
 ```
 
-## Normal Mode (Default)
+## Ask Before Edits
 
-Normal mode is Claude Code's default setting. It asks for your approval before taking any action.
+This mode asks for your approval before taking any action.
 
 ### How It Works
 
@@ -67,7 +67,7 @@ When Claude asks for permission, you typically have these options:
 - **View Diff**: See exactly what changes will be made (for edits)
 - **Allow Always**: Approve this type of action for the session
 
-### When to Use Normal Mode
+### When to Use Ask Before Edits Mode
 
 **Recommended for:**
 - First time working in a codebase
@@ -79,24 +79,24 @@ When Claude asks for permission, you typically have these options:
 **Example scenario:**
 ```
 You're new to a project and want to understand its structure.
-Using Normal mode, you can see exactly what files Claude reads
+Using Ask Before Edits mode, you can see exactly what files Claude reads
 and how it interprets the codebase.
 ```
 
-### Tips for Normal Mode
+### Tips for Ask Before Edits Mode
 
 1. **Use "View Diff"** liberally—understanding changes builds intuition
 2. **"Allow Always"** for repetitive approvals (like file reads)
 3. **Deny and redirect** when Claude takes the wrong approach
 4. **Take notes** on patterns you observe
 
-## Auto-Accept Mode
+## Edit Automatically Mode
 
-Auto-accept mode lets Claude Code operate more autonomously by automatically approving certain actions.
+Edit Automatically mode lets Claude Code operate more autonomously by automatically approving certain actions.
 
 ### How It Works
 
-In auto-accept mode, Claude automatically proceeds with:
+In Edit Automatically mode, Claude automatically proceeds with:
 - File reads
 - File edits
 - File creation
@@ -117,7 +117,7 @@ Claude: I'll add loading state to the UserProfile component.
 
 ### What Still Requires Approval
 
-Even in auto-accept mode, certain actions require explicit approval:
+Even in Edit Automatically mode, certain actions require explicit approval:
 
 - **Destructive commands**: `rm`, `git reset --hard`, etc.
 - **Package installation**: `npm install`, adding dependencies
@@ -125,21 +125,7 @@ Even in auto-accept mode, certain actions require explicit approval:
 - **Network requests**: External API calls
 - **System modifications**: Environment changes
 
-### Enabling Auto-Accept
-
-In VS Code:
-1. Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
-2. Search "Claude Code: Enable Auto-Accept"
-3. Confirm when prompted
-
-In CLI:
-```bash
-claude --auto-accept "Your prompt here"
-# or
-claude -y "Your prompt here"
-```
-
-### When to Use Auto-Accept Mode
+### When to Use Edit Automatically Mode
 
 **Recommended for:**
 - Well-understood codebases
@@ -164,13 +150,6 @@ slow you down significantly.
 - Keep changes atomic and testable
 - Run tests after auto-accept sessions
 - Review git diff before committing
-
-```bash
-# After auto-accept session:
-git diff                    # Review all changes
-npm test                    # Run tests
-git add -p                  # Stage selectively
-```
 
 ## Plan Mode
 
@@ -211,20 +190,6 @@ Claude: [Reads package.json]
 - Run commands (except read-only ones like `ls`)
 - Make any modifications
 
-### Enabling Plan Mode
-
-In VS Code:
-1. Open Command Palette
-2. Search "Claude Code: Enter Plan Mode"
-3. Or use the mode selector in the Claude Code panel
-
-In CLI:
-```bash
-claude --plan "Analyze this codebase and suggest improvements"
-# or
-claude -p "How would you refactor the authentication system?"
-```
-
 ### When to Use Plan Mode
 
 **Recommended for:**
@@ -251,18 +216,7 @@ A typical plan mode workflow:
 3. **Request suggestions**: "How would you improve the error handling?"
 4. **Get implementation plan**: "Create a step-by-step plan to add feature X"
 5. **Exit plan mode** when ready to implement
-6. **Implement with plan as guide**: Use normal or auto-accept mode
-
-## Switching Between Modes
-
-### Quick Reference
-
-| From | To | VS Code | CLI |
-|------|-----|---------|-----|
-| Normal | Auto-Accept | Command Palette | `--auto-accept` or `-y` |
-| Normal | Plan | Command Palette | `--plan` or `-p` |
-| Auto-Accept | Normal | Command Palette | Disable auto-accept |
-| Plan | Normal | Command Palette | Exit plan mode |
+6. **Implement with plan as guide**: Use Ask Before Edits or Edit Automatically mode
 
 ### Mode Transitions in Practice
 
@@ -274,17 +228,17 @@ A typical session might flow:
    - Understand architecture
    - Plan your approach
 
-2. TRANSITION: Normal mode
+2. TRANSITION: Ask Before Edits mode
    - Begin implementation
    - Review each change
    - Build understanding
 
-3. TRANSITION: Auto-accept mode
+3. TRANSITION: Edit Automatically mode
    - Speed up routine work
    - Trust patterns you've verified
    - Complete implementation quickly
 
-4. FINISH: Normal mode
+4. FINISH: Ask Before Edits mode
    - Final changes
    - Careful review
    - Commit preparation
@@ -297,20 +251,20 @@ A typical session might flow:
 Ask yourself these questions:
 
 **1. How familiar am I with this codebase?**
-- New to it → Plan or Normal
-- Somewhat familiar → Normal
-- Very familiar → Auto-accept
+- New to it → Plan or Ask Before Edits
+- Somewhat familiar → Ask Before Edits
+- Very familiar → Edit Automatically
 
 **2. What's the risk of this task?**
-- High risk (auth, data, security) → Normal
-- Medium risk (features) → Normal, then Auto-accept
-- Low risk (formatting, typos) → Auto-accept
+- High risk (auth, data, security) → Ask Before Edits
+- Medium risk (features) → Ask Before Edits, then Edit Automatically
+- Low risk (formatting, typos) → Edit Automatically
 
 **3. What's my goal right now?**
 - Understanding → Plan
-- Learning → Normal
-- Implementing → Normal or Auto-accept
-- Fixing quickly → Auto-accept
+- Learning → Ask Before Edits
+- Implementing → Ask Before Edits or Edit Automatically
+- Fixing quickly → Edit Automatically
 
 ### Mode Recommendations by Task
 
@@ -318,67 +272,72 @@ Ask yourself these questions:
 |------|------------------|
 | Codebase exploration | Plan |
 | Architecture planning | Plan |
-| First feature in new repo | Normal |
-| Security-related changes | Normal |
-| Configuration changes | Normal |
-| Routine refactoring | Auto-accept |
-| Fixing lint errors | Auto-accept |
-| Adding tests | Auto-accept (after first few) |
-| Debug investigation | Plan, then Normal |
+| First feature in new repo | Ask Before Edits |
+| Security-related changes | Ask Before Edits |
+| Configuration changes | Ask Before Edits |
+| Routine refactoring | Edit Automatically |
+| Fixing lint errors | Edit Automatically |
+| Adding tests | Edit Automatically (after first few) |
+| Debug investigation | Plan, then Ask Before Edits |
 | Code review | Plan |
 
 ## Practical Exercise: Mode Exploration
 
-Try each mode with the same task to understand the differences.
+Try each mode with the same task in the **Coins R Us** project to understand the differences.
 
 ### Setup
 
-Choose a simple task: "Add a timestamp to console.log statements in a file"
+Open the Coins R Us project in Claude Code. Your task: "Add error logging to the login API route in `src/app/api/login/route.ts`"
 
 ### Exercise
 
 **Step 1: Plan Mode**
+
+Enter plan mode (click the mode selector or use `/plan`) and ask:
 ```
-Enter plan mode and ask Claude:
-"How would you add timestamps to console.log statements?"
+How should I add error logging to the login API route?
+What patterns does this codebase use for error handling?
+```
 
 Observe:
-- What files does it read?
+- What files does Claude read to understand the codebase?
 - How detailed is its plan?
-- Note that nothing changes
-```
+- Notice that no files are modified
 
 **Step 2: Normal Mode**
+
+Exit plan mode and give the implementation task:
 ```
-Exit plan mode and give the same task.
+Add try/catch error logging to the login API route
+```
 
 Observe:
-- What approvals are required?
+- What approvals does Claude request?
 - How do the actual changes match the plan?
-- What would you deny or modify?
-```
+- Would you deny or modify any changes?
 
-**Step 3: Auto-Accept Mode**
+**Step 3: Edit Automatically Mode**
+
+Undo the changes (`git checkout .`) and enable Edit Automatically mode. Then ask:
 ```
-Undo the changes (git checkout) and enable auto-accept.
-Give the same task.
+Apply the same error logging pattern to the register API route
+```
 
 Observe:
-- How fast is the execution?
-- What actions still require approval?
-- Is the result different from Normal mode?
-```
+- How fast does Claude execute?
+- What actions still require your approval?
+- Is the result consistent with the login route changes?
 
 ### Reflect
 
-- Which mode felt most comfortable?
-- What situations would require each mode?
-- How would you combine modes in real work?
+- Which mode felt most comfortable for this task?
+- When would you use Plan mode vs Edit Automatically?
+- How would you combine modes when working on the full Coins R Us project?
 
 ## Key Takeaways
 
 1. **Normal mode** provides full visibility and control—use it when learning or for risky tasks
-2. **Auto-accept mode** speeds up routine work but requires trust in your recovery capabilities
+2. **Edit Automatically mode** speeds up routine work but requires trust in your recovery capabilities
 3. **Plan mode** is pure analysis—perfect for exploration and planning before action
 4. **Match mode to task**: High risk = more oversight, routine work = more autonomy
 5. **Mode switching** is natural—move between modes as your needs change throughout a session

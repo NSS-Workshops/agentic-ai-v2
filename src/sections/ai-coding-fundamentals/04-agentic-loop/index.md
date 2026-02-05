@@ -363,35 +363,45 @@ You: Stop. The tests are failing because we need to mock the API.
 
 ## Practical Exercise: Observing the Loop
 
-Try this exercise to see the agentic loop in action:
+Try this exercise to see the agentic loop in action using the **Coins R Us** project.
 
 ### Setup
 
-1. Open a project with existing code
-2. Find a function that lacks error handling
+Open the Coins R Us project in Claude Code. Your task: Add a coin detail page that shows full information when a user clicks on a coin.
 
 ### Exercise
 
 Ask Claude Code:
 ```
-"Add comprehensive error handling to the [function name] function.
-After making changes, run the tests to verify nothing broke."
+Add a coin detail page at /coins/[id] that displays the full
+information for a single coin. Use the existing styling patterns.
 ```
 
 ### Observe
 
-Watch for:
-1. What files does it read first?
-2. What approach does it take?
-3. How does it verify the changes?
-4. Does it iterate if something fails?
+Watch the agentic loop unfold:
+
+**Gather phase:**
+- What files does Claude read first?
+- Does it look at existing pages to understand patterns?
+- Does it check how routing works in Next.js App Router?
+
+**Act phase:**
+- What files does it create or modify?
+- Does it create a new route directory?
+- How does it style the page?
+
+**Verify phase:**
+- Does it try to run the development server?
+- Does it check for TypeScript errors?
+- Does it iterate if something fails?
 
 ### Reflect
 
-- Did the gather phase collect enough context?
-- Were the actions appropriate?
-- Was verification thorough?
-- Would you intervene differently next time?
+- Did Claude gather enough context before acting?
+- Were the changes consistent with existing Coins R Us patterns?
+- Would you have intervened at any point?
+- How would the result differ if you had provided more initial context?
 
 ## Key Takeaways
 

@@ -433,40 +433,50 @@ Skills are smart but not perfect:
 
 ## Practical Exercise: Skill Practice
 
-Practice using skills in a realistic workflow.
+Practice using skills in a realistic workflow with the **Coins R Us** project.
 
 ### Setup
 
-1. Create a new branch: `git checkout -b skill-practice`
-2. Make some changes to your code (add a function, fix a bug)
+1. Open the Coins R Us project in Claude Code
+2. Create a new branch: `git checkout -b add-sold-out-badge`
 
 ### Exercise
 
 **Step 1: Plan a small feature**
-```
-/plan Add a helper function that formats dates for display
-```
-Review the plan. Does it match your expectations?
 
-**Step 2: Implement and review**
+Use the `/plan` skill to plan adding a "Sold Out" badge for coins with zero quantity:
 ```
-[Implement the plan]
+/plan Add a "Sold Out" badge that displays on coins with quantity of 0
+```
+Review the plan. Does it identify the right components to modify?
+
+**Step 2: Implement the feature**
+
+Ask Claude to implement the plan, then use `/review` to check your work:
+```
+Implement the sold out badge based on the plan
+```
+
+After implementation:
+```
 /review
 ```
-Address any issues found.
+What issues does the review find? Address any concerns.
 
 **Step 3: Commit with skill**
+
+Stage your changes and use `/commit` to create a well-formatted commit:
 ```
 git add .
 /commit
 ```
-Evaluate the proposed commit message.
+Evaluate the proposed commit message. Does it follow conventional commit format?
 
 ### Reflect
 
-- How did skills change your workflow?
-- What would you do differently?
-- Which skills will you use regularly?
+- How did `/plan` help you think through the feature before coding?
+- What issues did `/review` catch that you might have missed?
+- Did `/commit` write a better message than you would have?
 
 ## Key Takeaways
 

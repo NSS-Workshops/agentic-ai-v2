@@ -334,32 +334,33 @@ Claude: Rerunning Subagent 2 with additional guidance...
 
 ## Practical Exercise: Delegation Practice
 
-Practice using task delegation effectively.
+Practice using task delegation to add search functionality to **Coins R Us**.
 
 ### Setup
 
-Choose a moderately complex task in your project:
-- Adding a feature that spans multiple files
-- Refactoring a system with multiple components
-- Adding tests across several modules
+Your task: Add a search feature that lets users filter coins by name, year, or denomination. This spans multiple concerns:
+- Search UI component
+- Filter logic
+- API integration (optional: search endpoint)
 
 ### Exercise
 
 **Step 1: Plan the delegation**
 
 ```
-You: I want to [describe task]. Before doing anything, show me how
-     you would delegate this to subagents.
+You: I want to add search functionality to Coins R Us that filters
+     coins by name, year, or denomination. Before doing anything,
+     show me how you would delegate this to subagents.
 
-Claude: [Shows delegation plan]
+Claude: [Shows delegation plan with subagents for UI, filter logic, etc.]
 ```
 
 **Step 2: Refine the plan**
 
 ```
 You: Let's modify the plan:
-     - Combine subagents 2 and 3
-     - Add a separate subagent for tests
+     - Keep filtering client-side for now (no API endpoint)
+     - Add a separate subagent for styling the search input
 ```
 
 **Step 3: Execute with oversight**
@@ -371,13 +372,16 @@ You: Proceed with delegation, but pause after each subagent
 
 **Step 4: Review and merge**
 
-Examine each subagent's work, request changes, then approve.
+Examine each subagent's work:
+- Does the search UI match the existing Coins R Us styling?
+- Does the filter logic handle edge cases (empty search, partial matches)?
+- Do all the pieces integrate correctly?
 
 ### Reflect
 
-- Did delegation make the task easier?
-- Where was context isolation helpful?
-- Where did you need to coordinate between subagents?
+- Did delegation make this multi-file feature easier?
+- Where was context isolation helpful (e.g., UI vs logic)?
+- What would you delegate differently next time?
 
 ## Key Takeaways
 

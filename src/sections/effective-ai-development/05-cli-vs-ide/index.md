@@ -387,40 +387,42 @@ See full discussion: docs/decisions/auth-refactor.md
 
 ## Practical Exercise: Tool Selection
 
-Try completing the same task with both tools.
+Try completing the same task with both tools using the **Coins R Us** project.
 
 ### Setup
 
-Choose a small task: "Add a helper function to format phone numbers"
+Your task: Add a `formatPrice` helper function that formats coin prices as currency (e.g., `$1,250.00`), then apply it throughout the app.
 
 ### Part 1: CLI Approach
 
+In your terminal:
 ```bash
-$ claude "Create a formatPhoneNumber function in src/utils/"
+cd coins-r-us
+claude "Create a formatPrice helper function and apply it to all coin price displays"
 ```
 
 Note:
 - How long did it take?
-- How was the experience reviewing changes?
-- Did you feel you had enough context?
+- How was the experience reviewing changes across multiple files?
+- Did you feel you had enough context about where prices are displayed?
 
 ### Part 2: IDE Approach
 
-Open VS Code, then:
+Open Coins R Us in VS Code with Claude Code extension, then:
 ```
-"Create a formatPhoneNumber function in utils"
+Create a formatPrice helper function and apply it to all coin price displays
 ```
 
 Note:
-- How did inline diffs help or hinder?
-- Was the visual context valuable?
-- Did the session feel more or less efficient?
+- How did inline diffs help you review the changes?
+- Was seeing the file tree and open files valuable?
+- Did the session feel more or less efficient than CLI?
 
 ### Part 3: Reflect
 
-- Which tool felt more natural for this task?
-- Would your answer change for a larger task?
-- What's your default going forward?
+- Which tool felt more natural for this multi-file change?
+- Would CLI have been faster for just creating the helper (without applying it)?
+- What's your default going forward for similar tasks?
 
 ## Common Pitfalls
 
